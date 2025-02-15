@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            animation: backgroundAnimation 5s infinite alternate linear;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+            50% { background: linear-gradient(45deg, #ff4b2b, #ff416c); }
+            100% { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        button {
+            font-size: 1.5rem;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .images img {
+            width: 150px;
+            height: auto;
+            animation: float 3s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="gorilagym.png" alt="Gorila elegante">
+        <img src="gymgirl.png" alt="Power Ranger Rosa">
+        
+    </div>
+    <div class="container" id="question">
+        <h1>¿Quieres ser mi San Valentín?</h1>
+        <button class="yes" onclick="showMessage()">Sí</button>
+        <button class="no" onclick="moveNoButton(this)">No</button>
+    </div>
+    <div class="container hidden" id="response">
+        <h1>¡Lo sabía que ibas a decir SI!</h1>
+        <h2>Feliz Día Mi Lic. Sánchez ❤️ 🦍</h2>
+    </div>
+    <script>
+        function showMessage() {
+            document.getElementById('question').classList.add('hidden');
+            document.getElementById('response').classList.remove('hidden');
+        }
+        function moveNoButton(button) {
+            let x = Math.random() * (window.innerWidth - 150);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.position = 'absolute';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
+
+
+
